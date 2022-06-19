@@ -3,7 +3,7 @@
 This application uses a Redis instance to cache results of calls to a local or remote database. Both SQLite and MySQL databases are allowed, the credentials and database URL can be specified in the application.yml file.
 
 ## Requirements
-The application requires a working instance of Redis DataBase on the host system. It can be installed following [this guide](https://redis.io/docs/getting-started/). Redis IP and port can be specified in the application.yml. The application itself also requires Java.
+The application requires a working instance of Redis DataBase on the host system. It can be installed following [this guide](https://redis.io/docs/getting-started/). Redis IP and port can be specified in the application.yml along with expiration times for cached values. The application itself also requires Java.
 
 ## HTML endpoints
 Application has endpoints that allow for direct access to the DataBase, direct access to Redis and get calls using cache functionality. By default it runs at localhost:8080
