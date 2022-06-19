@@ -23,3 +23,6 @@ There are following Redis endpoints
 1. GET /redis/get (parameters: key) - gets a value from a key from Redis
 2. GET /redis/exists (parameters: key) - checks if a key exists in Redis
 3. POST /redis/set (parameters: key, value) - inserts a specific key, value pair into Redis. Both are text values
+
+## Credits
+This application uses [xerial.org SQLite JDBC driver](https://github.com/xerial/sqlite-jdbc). 
