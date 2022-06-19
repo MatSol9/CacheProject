@@ -69,7 +69,7 @@ public class SqlDataBaseClient implements DataBaseClient{
             statement.executeUpdate(query);
         } catch (SQLException e) {
             LOGGER.error("Error when inserting key: {}, value: {} into database: {}",
-                    key, value, e.getSQLState());
+                    key, value, e.getMessage());
             return false;
         }
         return true;

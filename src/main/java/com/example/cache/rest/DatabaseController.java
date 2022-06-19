@@ -40,6 +40,18 @@ public class DatabaseController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @PostMapping("/database/insert")
+    public ResponseEntity<?> insertItemIntoDB(@RequestParam(value="key") String key,
+                                              @RequestParam(value="value") String value) {
+        LOGGER.info("Inserting value: {} with key: {} into the DataBase", value, key);
+        if (dataBaseClient.executeInsert(key, value)) {
+            LOGGER.info("Inserting key: {}, value: {} into the DataBase was successful", key, value);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        LOGGER.warn("Failed to insert key: {}, value: {} into the DataBase", key, value);
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     @PostMapping("/database/connection/retry")
     public ResponseEntity<?> retryDatabaseConnection() {
         LOGGER.info("Retrying database connection");
