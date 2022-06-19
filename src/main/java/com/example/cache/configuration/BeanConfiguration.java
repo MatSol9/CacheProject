@@ -1,7 +1,7 @@
 package com.example.cache.configuration;
 
 import com.example.cache.clients.DataBaseClient;
-import com.example.cache.clients.SqlLiteDataBaseClient;
+import com.example.cache.clients.SqlDataBaseClient;
 import com.example.cache.clients.TestDataBaseClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -15,9 +15,15 @@ public class BeanConfiguration {
     private String redisIp;
     @Value("${redis.port}")
     private int redisPort;
-    @Value("${database.sqlite.location:}")
-    private String sqlitePath;
-    @Value("${database.sqlite.timeout:0}")
+    @Value("${database.sql.location:}")
+    private String sqlPath;
+    @Value("${database.sql.auth.username:}")
+    private String username;
+    @Value("${database.sql.auth.password:}")
+    private String password;
+    @Value("${database.sql.auth.enabled: false}")
+    private boolean enableAuthorisation;
+    @Value("${database.sql.timeout:0}")
     private int timeout;
 
     @Bean
@@ -26,13 +32,13 @@ public class BeanConfiguration {
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "database.sqlite", name = "enabled", havingValue = "true")
+    @ConditionalOnProperty(prefix = "database.sql", name = "enabled", havingValue = "true")
     public DataBaseClient sqLiteDataBaseClient() {
-        return new SqlLiteDataBaseClient(sqlitePath, timeout);
+        return new SqlDataBaseClient(sqlPath, timeout, username, password, enableAuthorisation);
     }
 
     @Bean
-    @ConditionalOnProperty(prefix = "database.sqlite", name = "enabled", havingValue = "false")
+    @ConditionalOnProperty(prefix = "database.sql", name = "enabled", havingValue = "false")
     public DataBaseClient testDataBaseClient() {
         return new TestDataBaseClient();
     }

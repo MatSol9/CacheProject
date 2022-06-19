@@ -2,7 +2,12 @@ redis:
     ip: 127.0.0.1
     port: 6379
 database:
-    sqlite:
+    sql:
         enabled: true
         timeout: 10
-        location: jdbc:sqlite:src/main/resources/bazadanychxd.db
+#        location: jdbc:sqlite:src/main/resources/bazadanych.db
+        location: jdbc:mysql://sql11.freesqldatabase.com:3306/sql11500694
+        auth:
+            enabled: true
+            username: sql11500694
+            password: zJ9yRJNJBQ
