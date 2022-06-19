@@ -25,4 +25,4 @@ There are following Redis endpoints
 3. POST /redis/set (parameters: key, value) - inserts a specific key, value pair into Redis. Both are text values
 
 ## Credits
-This application uses [xerial.org SQLite JDBC driver](https://github.com/xerial/sqlite-jdbc) which follows the [Apache License version 2.0] (http://www.apache.org/licenses/). 
+This application uses [xerial.org SQLite JDBC driver](https://github.com/xerial/sqlite-jdbc) which follows the [Apache License version 2.0](https://www.apache.org/licenses/). 
