@@ -24,5 +24,8 @@ There are following Redis endpoints
 2. GET /redis/exists (parameters: key) - checks if a key exists in Redis
 3. POST /redis/set (parameters: key, value) - inserts a specific key, value pair into Redis. Both are text values
 
+### Maintenance endpoints
+Application also has a Spring-based /actuator/health endpoint for checking it's current status.
+
 ## Credits
 This application uses [xerial.org SQLite JDBC driver](https://github.com/xerial/sqlite-jdbc) which follows the [Apache License version 2.0](https://www.apache.org/licenses/). 
